@@ -1,0 +1,19 @@
+{
+  "name": "react-data-table",
+  "version": "1.0.0",
+  "description": "A DataTable based on ReactJs components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prince1809/react-data-table.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prince1809/react-data-table/issues"
+  },
+  "homepage": "https://github.com/prince1809/react-data-table#readme"
+}
