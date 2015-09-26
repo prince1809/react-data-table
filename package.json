@@ -4,6 +4,7 @@
   "description": "A DataTable based on ReactJs components",
   "main": "index.js",
   "scripts": {
+    "site-dev-server": "./build_helpers/startSiteDevServer.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,9 +12,17 @@
     "url": "git+https://github.com/prince1809/react-data-table.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache License",
   "bugs": {
     "url": "https://github.com/prince1809/react-data-table/issues"
   },
-  "homepage": "https://github.com/prince1809/react-data-table#readme"
+  "homepage": "https://github.com/prince1809/react-data-table#readme",
+  "dependencies": {
+    "fixed-data-table": "^0.4.6",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  }
 }
