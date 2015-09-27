@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-//var resolvers = require('../build_helpers/resolvers');
+var resolvers = require('../build_helpers/resolvers');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var isDev = process.env.NODE_ENV !== 'production';
@@ -74,7 +74,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       '__DEV__': JSON.stringify(isDev || true)
     }),
-    //resolvers.resolveHasteDefines,
+    resolvers.resolveHasteDefines,
   ]
 };
 
