@@ -51,13 +51,10 @@ module.exports =
 	var IndexPage = __webpack_require__(156);
 
 	function renderPath(path, props, onRender) {
-	  onRender(
-	    IndexPage.renderToString(props)
-	  );
+	  onRender(IndexPage.renderToString(props));
 	}
 
 	module.exports = renderPath;
-
 
 /***/ },
 /* 1 */
@@ -20284,7 +20281,6 @@ module.exports =
 /***/ function(module, exports) {
 
 	"use strict";
-
 
 /***/ }
 /******/ ]);
