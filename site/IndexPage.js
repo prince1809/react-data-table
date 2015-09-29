@@ -13,6 +13,23 @@ var ExamplePages = Constants.ExamplePages;
 
 var IndexPage = React.createClass({
 
+  statics: {
+    getDoctype(){
+      return '<!doctype html>';
+    },
+
+    renderToString(props){
+      return IndexPage.getDoctype() +
+      React.renderToString(<IndexPage {...props} />);
+    },
+  },
+
+  getInitialState(){
+    return {
+      renderPage: !this.props.devMode
+    };
+  },
+
   render(){
     var browserInitScriptObj = {
       __html: 'window.INITIAL_PROPS = ' + JSON.stringify(this.props) + ';\n'
@@ -58,8 +75,14 @@ var IndexPage = React.createClass({
           JSON.stringify(this.props.location) +
           ' not found.'
       );
+  },
+  componentDidMount(){
+    if(!ths.state.renderPage){
+      this.setState({
+        renderPage: true
+      });
+    }
   }
-
 });
 
 module.exports = IndexPage;
