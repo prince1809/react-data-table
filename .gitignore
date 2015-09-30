@@ -1,2 +1,4 @@
 node_modules/
 __site__/
+__site_prerender__/
+npm-debug.log

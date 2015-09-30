@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack')
-//var resolvers = require('../build_helpers/resolvers');
+var resolvers = require('../build_helpers/resolvers');
 var isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -41,7 +41,7 @@ module.exports = {
       }
     ]
   },
-/*
+
  resolve : {
     alias: {
       'fixed-data-table/css': path.join(__dirname, '../src/css'),
@@ -58,7 +58,7 @@ module.exports = {
     }),
     resolvers.resolveHasteDefines
   ]
-  */
+
 };
 
 if(process.env.NODE_ENV == 'production'){
