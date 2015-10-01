@@ -7,5 +7,5 @@ React.render(
   <IndexPage
   {...window.INITIAL_PROPS}
   />,
-  docuement
+  document
 );

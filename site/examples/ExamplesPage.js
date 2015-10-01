@@ -1,5 +1,10 @@
 "use strict";
+
+var ExampleHeader = require('./ExampleHeader');
+var ExamplesWrapper = require('./ExamplesWrapper');
+var TouchExampleWrapper = require('./TouchExampleWrapper');
 var React = require('react');
+var Constants = require('../Constants');
 
 
 var ExamplePages = React.createClass({
