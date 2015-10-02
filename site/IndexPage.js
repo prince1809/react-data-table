@@ -47,9 +47,8 @@ var IndexPage = React.createClass({
       <html>
         <head>
           <meta charSet="utf-8" />
-          <title>FixedDataTable</title>
+          <title>FixedDataTable Something</title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-          <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css" />
           <link rel="stylesheet" type="text/css" href={this.props.files['main.css']} />
           <link rel="shortcut icon" type="image/png" href={faviconURL} />
           <base target="_blank" />

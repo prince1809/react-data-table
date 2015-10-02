@@ -1,5 +1,7 @@
 "use strict"
 
+require('./examplesPageStyle.less');
+
 var React = require('react');
 
 var MiniHeader = require('../MiniHeader');
@@ -10,8 +12,7 @@ var ExamplesWrapper = React.createClass({
   render(){
     return (
       <div className="examplesPage">
-        
-
+      <MiniHeader />
       <div className="pageBody" id="body">
         <div className="contents">
           <SideBar
@@ -25,7 +26,7 @@ var ExamplesWrapper = React.createClass({
         </div>
       </div>
       </div>
-    )
+    );
   }
 });
 
