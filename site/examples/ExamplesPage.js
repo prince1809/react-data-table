@@ -6,15 +6,16 @@ var TouchExampleWrapper = require('./TouchExampleWrapper');
 var React = require('react');
 var Constants = require('../Constants');
 
+var ExamplePages = Constants.ExamplePages;
 
-var ExamplePages = React.createClass({
-  getInitialState(){
+var ExamplesPage = React.createClass({
+  getInitialState() {
     return {
       renderPage: false
     };
   },
 
-  render(){
+  render() {
     return (
       <ExamplesWrapper {...this.props}>
         <ExampleHeader {...this.props} />
@@ -23,13 +24,24 @@ var ExamplePages = React.createClass({
     );
   },
 
-  _renderPage(){
+  _renderPage() {
     // Require common FixedDataTable CSS.
+    require('fixed-data-table/css/layout/ScrollbarLayout.css');
+    require('fixed-data-table/css/layout/fixedDataTableLayout.css');
+    require('fixed-data-table/css/layout/fixedDataTableCellLayout.css');
+    require('fixed-data-table/css/layout/fixedDataTableCellGroupLayout.css');
+    require('fixed-data-table/css/layout/fixedDataTableColumnResizerLineLayout.css');
+    require('fixed-data-table/css/layout/fixedDataTableRowLayout.css');
 
-    switch(this.props.example){
+    require('fixed-data-table/css/style/fixedDataTable.css');
+    require('fixed-data-table/css/style/fixedDataTableCell.css');
+    require('fixed-data-table/css/style/fixedDataTableColumnResizerLine.css');
+    require('fixed-data-table/css/style/fixedDataTableRow.css');
+    require('fixed-data-table/css/style/Scrollbar.css');
+
+    switch (this.props.example) {
       case ExamplePages.OBJECT_DATA_EXAMPLE:
         var ObjectDataExample = require('./ObjectDataExample');
-
         return (
           <TouchExampleWrapper {...this.state}>
             <ObjectDataExample />
@@ -42,38 +54,65 @@ var ExamplePages = React.createClass({
             <ResizeExample />
           </TouchExampleWrapper>
         );
+      case ExamplePages.FLEXGROW_EXAMPLE:
+        var FlexGrowExample = require('./FlexGrowExample');
+        return (
+          <TouchExampleWrapper {...this.state}>
+            <FlexGrowExample />
+          </TouchExampleWrapper>
+        );
+      case ExamplePages.COLUMN_GROUPS_EXAMPLE:
+        var ColumnGroupsExample = require('./ColumnGroupsExample');
+        return (
+          <TouchExampleWrapper {...this.state}>
+            <ColumnGroupsExample />
+          </TouchExampleWrapper>
+        );
+      case ExamplePages.FILTER_EXAMPLE:
+        var FilterExample = require('./FilterExample');
+        return (
+          <TouchExampleWrapper {...this.state}>
+            <FilterExample />
+          </TouchExampleWrapper>
+        );
+      case ExamplePages.SORT_EXAMPLE:
+        var SortExample = require('./SortExample');
+        return (
+          <TouchExampleWrapper {...this.state}>
+            <SortExample />
+          </TouchExampleWrapper>
+        );
     }
-
   },
 
-  componentDidMount(){
+  componentDidMount() {
     this._update();
     var win = window;
-    if(win.addEventListener){
+    if (win.addEventListener) {
       win.addEventListener('resize', this._onResize, false);
-    }else if(win.attachEvent){
-      win.attachEvent('onresize',this._onResize);
-    }else {
+    } else if (win.attachEvent) {
+      win.attachEvent('onresize', this._onResize);
+    } else {
       win.onresize = this._onResize;
     }
   },
 
-  _onResize(){
+  _onResize() {
     clearTimeout(this._updateTimer);
     this._updateTimer = setTimeout(this._update, 16);
   },
 
-  _update(){
+  _update() {
     var win = window;
 
-    var widthoffset = win.innerWidth < 680 ? 0 : 240;
+    var widthOffset = win.innerWidth < 680 ? 0 : 240;
 
     this.setState({
       renderPage: true,
-      tableWidth: win.innerWidth - widthoffset,
-      tableHeight: win.innerHeight - 200
+      tableWidth: win.innerWidth - widthOffset,
+      tableHeight: win.innerHeight - 200,
     });
   }
 });
 
-module.exports = ExamplePages;
+module.exports = ExamplesPage;
